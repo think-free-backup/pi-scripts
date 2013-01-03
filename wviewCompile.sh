@@ -30,7 +30,7 @@ sudo checkinstall make install
 wget \"http://garr.dl.sourceforge.net/project/wview/wview/wview-5.20.2/wview-5.20.2.tar.gz\"
 tar xvf wview-5.20.2.tar.gz
 cd wview-5.20.2
-./configure
+./configure --prefix=/ --bindir=/usr/bin --sysconfdir=/etc --localstatedir=/var/lib --libdir=/usr/lib
 make 
 sudo checkinstall make install
 
