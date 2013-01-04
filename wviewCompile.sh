@@ -15,7 +15,7 @@
 # Getting dependencies
 
 sudo apt-get update
-sudo apt-get install checkinstall libgd2-xpm-dev libsqlite3-dev libcurl4-openssl-dev libusb-1.0-0-dev apache2 sqlite3 gawk bc libapache2-mod-php5 php5-cli php5-common php5-cgi
+sudo apt-get install libgd2-xpm-dev libsqlite3-dev libcurl4-openssl-dev libusb-1.0-0-dev apache2 sqlite3 gawk bc libapache2-mod-php5 php5-cli php5-common php5-cgi
 
 # Getting radlib dependency and compiling it
 
@@ -24,7 +24,7 @@ tar xvf radlib-2.12.0.tar.gz
 cd radlib-2.12.0
 ./configure --enable-sqlite --prefix=/ --bindir=/usr/bin --sysconfdir=/etc --localstatedir=/var/lib --libdir=/usr/lib
 make 
-sudo checkinstall make install
+sudo make install
 
 # Getting wview and compiling it
 
@@ -33,7 +33,7 @@ tar xvf wview-5.20.2.tar.gz
 cd wview-5.20.2
 ./configure --prefix=/ 
 make 
-sudo checkinstall make install
+sudo make install
 
 # Web access
 
