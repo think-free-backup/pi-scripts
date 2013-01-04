@@ -19,7 +19,7 @@ sudo apt-get install libgd2-xpm-dev libsqlite3-dev libcurl4-openssl-dev libusb-1
 
 # Getting radlib dependency and compiling it
 
-wget \"wget http://downloads.sourceforge.net/project/radlib/radlib/radlib-2.12.0/radlib-2.12.0.tar.gz\"
+wget "http://downloads.sourceforge.net/project/radlib/radlib/radlib-2.12.0/radlib-2.12.0.tar.gz"
 tar xvf radlib-2.12.0.tar.gz
 cd radlib-2.12.0
 ./configure --enable-sqlite --prefix=/ --bindir=/usr/bin --sysconfdir=/etc --localstatedir=/var/lib --libdir=/usr/lib
@@ -28,7 +28,7 @@ sudo checkinstall make install
 
 # Getting wview and compiling it
 
-wget \"http://garr.dl.sourceforge.net/project/wview/wview/wview-5.20.2/wview-5.20.2.tar.gz\"
+wget "http://garr.dl.sourceforge.net/project/wview/wview/wview-5.20.2/wview-5.20.2.tar.gz"
 tar xvf wview-5.20.2.tar.gz
 cd wview-5.20.2
 ./configure --prefix=/ 
