@@ -15,7 +15,7 @@
 # Getting dependencies
 
 sudo apt-get update
-sudo apt-get install libgd2-xpm-dev libsqlite3-dev libcurl4-openssl-dev libusb-1.0-0-dev apache2 sqlite3 gawk bc libapache2-mod-php5 php5-cli php5-common php5-cgi
+sudo apt-get install checkinstall libgd2-xpm-dev libsqlite3-dev libcurl4-openssl-dev libusb-1.0-0-dev apache2 sqlite3 gawk bc libapache2-mod-php5 php5-cli php5-common php5-cgi
 
 # Getting radlib dependency and compiling it
 
