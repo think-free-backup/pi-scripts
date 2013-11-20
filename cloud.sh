@@ -19,7 +19,8 @@ then
     rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server
     apt-get update
     apt-get install ntp fake-hwclock vim
-    dpkg-reconfigure tzdata
+    echo "UTC" | sudo tee /etc/timezone
+    sudo dpkg-reconfigure  --frontend noninteractive  tzdata
     apt-get install locales
     dpkg-reconfigure locales
     apt-get install console-setup keyboard-configuration
