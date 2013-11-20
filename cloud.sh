@@ -12,6 +12,9 @@ then
     echo "Preparing sdcard"
   
     echo "vm.min_free_kbytes = 8192" >> /etc/sysctl.conf
+    echo "vm.swappiness=0" > /etc/sysctl.d/swap.conf
+    apt-get purge
+    apt-get autoremove
     sysctl -p /etc/sysctl.conf
     rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server
     apt-get update
