@@ -43,6 +43,15 @@ then
     # TODO : Install zeroconf script
 fi
 
+if [ "$1" == "cloud" ];
+then
+
+    echo "Installing cloud"
+    
+    apt-get install prosody
+
+fi
+
 if [ "$1" == "wmr100" ];
 then
 
