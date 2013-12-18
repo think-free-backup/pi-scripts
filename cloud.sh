@@ -4,6 +4,18 @@
 # http://distribution.hexxeh.net/raspbian/raspbian-r3.zip
 # user : root - password : hexxeh
 
+# FUNCTIONS #################################################################################################
+
+function installNode {
+
+    echo "Installing nodejs"
+
+    wget https://github.com/think-free/pi-packages/raw/master/nodejs_0.8.15-1_armhf.deb --no-check-certificate
+    dpkg -i nodejs_0.8.15-1_armhf.de
+}
+
+# CORE ######################################################################################################
+
 if [ "$#" -ne 1 ];
 then
 
@@ -46,9 +58,11 @@ fi
 if [ "$1" == "cloud" ];
 then
 
+    installNode
+
     echo "Installing cloud"
     
-    apt-get install prosody
+    apt-get install prosody lua-sec
 
 fi
 
@@ -78,16 +92,5 @@ then
 fi
 
 
-
-
-# FUNCTIONS #################################################################################################
-
-function installNode {
-
-    echo "Installing nodejs"
-
-    wget https://github.com/think-free/pi-packages/raw/master/nodejs_0.8.15-1_armhf.deb --no-check-certificate
-    sudo dpkg -i nodejs_0.8.15-1_armhf.de
-}
 
 
