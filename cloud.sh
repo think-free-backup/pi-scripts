@@ -39,6 +39,7 @@ then
     dpkg-reconfigure keyboard-configuration
     apt-get update && apt-get dist-upgrade
     apt-get install ntpdate
+    apt-get install curl
     ntpdate uk.pool.ntp.org
     rpi-update
 fi
@@ -63,6 +64,13 @@ then
     echo "Installing cloud"
     
     apt-get install prosody lua-sec
+    cd /tmp
+    wget http://easyrtc.com/files/easyrtc_server_example.zip
+    cd /opt
+    mkdir easyrtc
+    cd easyrtc
+    unzip easyrtc_server_example.zip
+    npm install
 
 fi
 
@@ -91,6 +99,28 @@ then
     # TODO : Install zeroconf script
 fi
 
+if [ "$1" == "media"];
+then
 
+    installNode
 
+    echo "Installing media"
 
+    sudo apt-get install mpd
+
+    sudo apt-get install git-core autoconf automake libtool libpopt-dev
+
+    mkdir src
+    cd src
+    git clone git://git.debian.org/collab-maint/svox.git svox-git
+    cd svox-git
+    git branch -a
+    git checkout -f origin/debian-sid
+    cd pico
+    ./autogen.sh
+    mkdir m4
+    ./configure --prefix=/opt/svox-pico/
+    make
+    make install
+
+fi
