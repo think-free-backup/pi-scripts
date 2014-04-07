@@ -110,12 +110,13 @@ then
 
     apt-get install git-core autoconf automake libtool libpopt-dev build-essential
 
+    cd
     mkdir src
     cd src
     git clone git://git.debian.org/collab-maint/svox.git svox-git
     cd svox-git
     git branch -a
-    git checkout -f origin/debian-sid
+    git checkout -f remotes/origin/debian-sid
     cd pico
     ./autogen.sh
     mkdir m4
