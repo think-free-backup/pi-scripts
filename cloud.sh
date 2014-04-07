@@ -99,7 +99,7 @@ then
     # TODO : Install zeroconf script
 fi
 
-if [ "$1" == "media"];
+if [ "$1" == "media" ];
 then
 
     installNode
