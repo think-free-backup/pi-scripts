@@ -31,8 +31,8 @@ then
     rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server
     apt-get update
     apt-get install ntp fake-hwclock vim
-    echo "UTC" | sudo tee /etc/timezone
-    sudo dpkg-reconfigure  --frontend noninteractive  tzdata
+    echo "UTC" | tee /etc/timezone
+    dpkg-reconfigure  --frontend noninteractive  tzdata
     apt-get install locales
     dpkg-reconfigure locales
     apt-get install console-setup keyboard-configuration
@@ -81,13 +81,13 @@ then
 	
     echo "Installing wmr100"
 
-    sudo apt-get install libusb-dev libzmq-dev
+    apt-get install libusb-dev libzmq-dev
     wget --no-check-certificate https://github.com/think-free/pi-packages/raw/master/libhid-0.2.16-rpi.tar.gz
     tar xvf libhid-0.2.16-rpi.tar.gz
     cd libhid-0.2.16
     ./configure --prefix=/
     make
-    sudo make install
+    make install
     cd ..
 
     git clone https://github.com/barnybug/wmr100.git
@@ -106,9 +106,9 @@ then
 
     echo "Installing media"
 
-    sudo apt-get install mpd
+    apt-get install mpd
 
-    sudo apt-get install git-core autoconf automake libtool libpopt-dev
+    apt-get install git-core autoconf automake libtool libpopt-dev build-essential
 
     mkdir src
     cd src
