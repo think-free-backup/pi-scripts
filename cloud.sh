@@ -10,8 +10,16 @@ function installNode {
 
     echo "Installing nodejs"
 
-    wget https://github.com/think-free/pi-packages/raw/master/nodejs_0.8.15-1_armhf.deb --no-check-certificate
-    dpkg -i nodejs_0.8.15-1_armhf.de
+    curl -L --output nodejs_0.8.15-1_armhf.deb https://github.com/think-free/pi-packages/raw/master/nodejs_0.8.15-1_armhf.deb
+    dpkg -i nodejs_0.8.15-1_armhf.deb
+    
+    # TODO : Add user node
+    
+    cd /opt
+    git clone https://github.com/think-free/monitor.git
+    cd monitor
+    chmod +x scripts/install
+    ./scripts/install
 }
 
 # CORE ######################################################################################################
@@ -30,7 +38,9 @@ then
     sysctl -p /etc/sysctl.conf
     rm /etc/ssh/ssh_host_* && dpkg-reconfigure openssh-server
     apt-get update
-    apt-get install ntp fake-hwclock vim
+    apt-get install ca-certificates
+    apt-get install libgnutls28 libgnutlsxx28 libgnutls-dev gnutls-dev
+    apt-get install ntp fake-hwclock vim git-core
     echo "UTC" | tee /etc/timezone
     dpkg-reconfigure  --frontend noninteractive  tzdata
     apt-get install locales
