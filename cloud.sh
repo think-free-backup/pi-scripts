@@ -105,6 +105,8 @@ then
     installNode
 
     echo "Installing media"
+    
+    echo "snd_bcm2835" >> /etc/modules
 
     apt-get install mpd
 
