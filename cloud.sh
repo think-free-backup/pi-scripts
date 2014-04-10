@@ -125,5 +125,17 @@ then
     ./configure --prefix=/opt/svox-pico/
     make
     make install
-
+    
+    echo "#!/bin/bash" > /opt/svox-pico/say
+    echo "" >> /opt/svox-pico/say
+    echo "PT=/opt/svox-pico/bin" >> /opt/svox-pico/say
+    echo "LG=fr-FR" >> /opt/svox-pico/say
+    echo "" >> /opt/svox-pico/say
+    echo "FILE=$RANDOM" >> /opt/svox-pico/say
+    echo "$PT/pico2wave -l=$LG -w=/tmp/$FILE.wav "$1"" >> /opt/svox-pico/say
+    echo "aplay /tmp/$FILE.wav" >> /opt/svox-pico/say
+    echo "rm /tmp/$FILE.wav" >> /opt/svox-pico/say
+    echo "" >> /opt/svox-pico/say
+    
+    chmod +x /opt/svox-pico/say
 fi
