@@ -152,4 +152,9 @@ then
     
     
     chmod +x /opt/svox-pico/say
+    
+    cd /srv
+    git clone https://github.com/think-free/say.git
+    cd say
+    npm install
 fi
