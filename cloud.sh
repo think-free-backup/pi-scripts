@@ -9,6 +9,8 @@
 function installNode {
 
     echo "Installing nodejs"
+    
+    apt-get install python
 
     curl -L --output nodejs_0.8.15-1_armhf.deb https://github.com/think-free/pi-packages/raw/master/nodejs_0.8.15-1_armhf.deb
     dpkg -i nodejs_0.8.15-1_armhf.deb
