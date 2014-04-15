@@ -115,6 +115,8 @@ if [ "$1" == "media" ];
 then
 
     installNode
+    
+    usermod -a -G audio node
 
     echo "Installing media"
     
@@ -203,5 +205,6 @@ then
     echo '        format          "22050:16:1"' >> /etc/mpd.conf
     echo '}' >> /etc/mpd.conf   
     mkdir -p /mnt/media
+    
     
 fi
