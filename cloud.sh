@@ -157,4 +157,49 @@ then
     git clone https://github.com/think-free/say.git
     cd say
     npm install
+    
+    cp /etc/mpd.conf /etc/mpd.conf_save
+    echo '## MPD Configuration file' > /etc/mpd.conf
+    echo '' >> /etc/mpd.conf
+    echo 'music_directory         "/mnt/media/Music"' >> /etc/mpd.conf
+    echo 'playlist_directory              "/var/lib/mpd/playlists"' >> /etc/mpd.conf
+    echo 'db_file                 "/var/lib/mpd/tag_cache"' >> /etc/mpd.conf
+    echo 'log_file                        "/var/log/mpd/mpd.log"' >> /etc/mpd.conf
+    echo 'pid_file                        "/var/run/mpd/pid"' >> /etc/mpd.conf
+    echo 'state_file                      "/var/lib/mpd/state"' >> /etc/mpd.conf
+    echo 'sticker_file                   "/var/lib/mpd/sticker.sql"' >> /etc/mpd.conf
+    echo 'bind_to_address         "0.0.0.0"' >> /etc/mpd.conf
+    echo 'port                            "6600"' >> /etc/mpd.conf
+    echo 'log_level                       "default"' >> /etc/mpd.conf
+    echo 'auto_update    "yes"' >> /etc/mpd.conf
+    echo 'follow_outside_symlinks "yes"' >> /etc/mpd.conf
+    echo 'follow_inside_symlinks          "yes"' >> /etc/mpd.conf
+    echo 'zeroconf_enabled                "yes"' >> /etc/mpd.conf
+    echo 'zeroconf_name                   "Music Player"' >> /etc/mpd.conf
+    echo 'filesystem_charset              "UTF-8"' >> /etc/mpd.conf
+    echo 'id3v1_encoding                  "UTF-8"' >> /etc/mpd.conf
+    echo '' >> /etc/mpd.conf
+    echo 'input {' >> /etc/mpd.conf
+    echo '        plugin "curl"' >> /etc/mpd.conf
+    echo '}' >> /etc/mpd.conf
+    echo '' >> /etc/mpd.conf
+    echo 'audio_output {' >> /etc/mpd.conf
+    echo '        type            "alsa"' >> /etc/mpd.conf
+    echo '        name            "My ALSA Device"' >> /etc/mpd.conf
+    echo '        device          "hw:0,0"        # optional' >> /etc/mpd.conf
+    echo '        format          "44100:16:2"    # optional' >> /etc/mpd.conf
+    echo '        mixer_device    "default"       # optional' >> /etc/mpd.conf
+    echo '        mixer_control   "PCM"           # optional' >> /etc/mpd.conf
+    echo '        mixer_index     "0"             # optional' >> /etc/mpd.conf
+    echo '}' >> /etc/mpd.conf
+    echo '' >> /etc/mpd.conf
+    echo 'audio_output {' >> /etc/mpd.conf
+    echo '        type            "httpd"' >> /etc/mpd.conf
+    echo '        name            "My HTTP Stream"' >> /etc/mpd.conf
+    echo '        encoder         "lame"          # optional, vorbis or lame' >> /etc/mpd.conf
+    echo '        port            "8000"' >> /etc/mpd.conf
+    echo '        #quality                "5.0"                   # do not define if bitrate is defined' >> /etc/mpd.conf
+    echo '        bitrate         "128"                   # do not define if quality is defined' >> /etc/mpd.conf
+    echo '        format          "22050:16:1"' >> /etc/mpd.conf
+    echo '}' >> /etc/mpd.conf    
 fi
