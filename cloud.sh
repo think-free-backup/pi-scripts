@@ -120,9 +120,9 @@ then
     
     echo "snd_bcm2835" >> /etc/modules
 
-    apt-get install mpd
-
-    apt-get install git-core autoconf automake libtool libpopt-dev build-essential
+    apt-get install -y mpd
+    apt-get install -y nfs-common
+    apt-get install -y git-core autoconf automake libtool libpopt-dev build-essential
 
     cd
     mkdir src
@@ -201,5 +201,7 @@ then
     echo '        #quality                "5.0"                   # do not define if bitrate is defined' >> /etc/mpd.conf
     echo '        bitrate         "128"                   # do not define if quality is defined' >> /etc/mpd.conf
     echo '        format          "22050:16:1"' >> /etc/mpd.conf
-    echo '}' >> /etc/mpd.conf    
+    echo '}' >> /etc/mpd.conf   
+    mkdir -p /mnt/media
+    
 fi
